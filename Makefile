@@ -1,7 +1,7 @@
-.PHONY: build run dev test clean docker-dev docker-prod
+.PHONY: build run dev test clean docker-dev docker-prod sqlc-install sqlc-version sqlc-generate
 
 build:
-	go build -o ./tmp/main ./cmd/api
+	go build -o ./tmp/main ./cmd/server
 
 run:
 	go run ./cmd/api
@@ -18,5 +18,11 @@ clean:
 docker-dev:
 	docker compose up api-dev
 
-docker-prod:
-	docker compose up api
+sqlc-install:
+	go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
+
+sqlc-version:
+	sqlc version
+
+sqlc-generate:
+	sqlc generate

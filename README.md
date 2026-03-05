@@ -7,6 +7,7 @@ Go 1.26 기반 HTTP API 서버.
 - Go 1.26+
 - Docker & Docker Compose (컨테이너 실행 시)
 - [air](https://github.com/air-verse/air) (핫리로드 사용 시)
+- [sqlc](https://sqlc.dev/) (SQL 코드 생성 시)
 
 ## 시작하기
 
@@ -24,11 +25,24 @@ make dev
 ### Docker
 
 ```bash
-# 개발 환경 (air 핫리로드)
+# 개발 환경 (air 핫리로드 + PostgreSQL)
 make docker-dev
+```
 
-# 프로덕션 빌드
-make docker-prod
+개발용 PostgreSQL 접속 정보:
+
+- Host: `localhost`
+- Port: `5432`
+- User: `scorpes`
+- Password: `scorpes`
+- DB: `scorpes_dev`
+
+### sqlc 설치
+
+```bash
+make sqlc-install
+make sqlc-version
+make sqlc-generate
 ```
 
 ## API
