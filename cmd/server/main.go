@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	// test
 	cfg := config.Load()
 
 	a := api.NewAPI(cfg)
