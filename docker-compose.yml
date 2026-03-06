@@ -23,6 +23,7 @@ services:
       postgres:
         condition: service_healthy
     environment:
+      ENV: development
       PORT: 8090
       DATABASE_URL: postgres://scorpes:scorpes@postgres:5432/scorpes_dev?sslmode=disable
     volumes:
